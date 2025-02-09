@@ -42,37 +42,7 @@ This project implements an API Gateway for a Hotel Booking Integration Service. 
 
 The system follows a microservice-inspired architecture, with the API Gateway acting as the central entry point for client requests and orchestrating interactions with various backend services.
 
-                                      REST API
-                                   +--------------+
-                                   |  API Gateway  |
-                                   | (Quarkus App)  |
-                                   +--------------+
-                                        ^   ^
-                                        |   | Data Flow/CDC
-  Client Apps (Web, Mobile) <----------+   +-------------------> Elasticsearch (Search Engine)
-                                        |   Database Interactions
-                                        |
-                                   +--------------+
-                                   |   MySQL DB   |
-                                   | (Data Storage)|
-                                   +--------------+
-                                        ^
-                                        | CDC Pipeline
-                                        |
-                                   +--------------+
-                                   | Kafka Connect|
-                                   | (MySQL CDC)  |
-                                   +--------------+
-                                        ^
-                                        | MySQL Binlog
-                                        |
-                                   +--------------+
-                                   |   MySQL DB   |
-                                   | (Data Source)|
-                                   +--------------+
-                                        ^
-                                        | Caching / State Management
-                                        +-------------------> Redis (Cache, Idempotency)
+![alt text](./high_level_system_design.png)
 
 ## Running the Application
 
